@@ -15,7 +15,7 @@ function CustomerModal({ closeModal, modalData, fetchCustomers }) {
 
   useEffect(() => {
     // Fetch membership options
-    axios.get("http://localhost:5000/api/memberships")
+    axios.get("https://customer-management-system-2ia8.vercel.app/api/memberships")
       .then((res) => setMemberships(res.data.memberships))
       .catch(console.error);
 
@@ -33,9 +33,9 @@ function CustomerModal({ closeModal, modalData, fetchCustomers }) {
     e.preventDefault();
     try {
       if (modalData) {
-        await axios.put(`http://localhost:5000/api/customers/${modalData._id}`, formData);
+        await axios.put(`https://customer-management-system-2ia8.vercel.app/api/customers/${modalData._id}`, formData);
       } else {
-        await axios.post("http://localhost:5000/api/customers", formData);
+        await axios.post("https://customer-management-system-2ia8.vercel.app/api/customers", formData);
       }
       fetchCustomers();
       closeModal();
