@@ -16,7 +16,7 @@ function CustomerTable() {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/customers");
+      const res = await axios.get("https://customer-management-system-2ia8.vercel.app/api/customers");
       setCustomers(res.data.customers);
     } catch (error) {
       console.error("Error fetching customers:", error);
@@ -26,7 +26,7 @@ function CustomerTable() {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/customers/${deleteCustomerId}`
+        `https://customer-management-system-2ia8.vercel.app/api/customers/${deleteCustomerId}`
       );
       setCustomers(customers.filter((c) => c._id !== deleteCustomerId));
       setShowDeleteConfirm(false); // Close confirmation modal
